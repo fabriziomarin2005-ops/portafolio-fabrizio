@@ -13,10 +13,9 @@ module.exports = {
         144: '36rem'
       },
       colors: {
-        blue: {
-          header: '#284691',
-          menuHeader: '#97ccf8'
-        }
+        'marca-negro': '#1a1a1a',
+        'marca-blanco': '#fdfdfd',
+        'marca-rojo': '#dc2626'
 
       },
       borderRadius: {

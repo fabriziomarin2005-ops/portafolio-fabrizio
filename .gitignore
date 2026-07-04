@@ -1,0 +1,22 @@
+
+# Dependencias (Gigantes, nunca se suben)
+node_modules/
+
+# Resultados de compilación (Netlify ya los genera solo)
+dist/
+dist-ssr/
+
+# Archivos de configuración de sistema y editor
+.DS_Store
+.env
+.env.local
+.env.*.local
+
+# Carpetas de configuración de PhpStorm/IDE
+.idea/
+.vscode/
+
+# Logs y otros
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

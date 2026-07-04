@@ -1,0 +1,58 @@
+/* --- Contenedor Principal --- */
+.hero-wrapper {
+    @apply relative min-h-screen flex items-center justify-center bg-marca-blanco overflow-hidden pt-20;
+}
+
+/* Fondo decorativo (un toque sutil técnico) */
+.hero-bg-pattern {
+    @apply absolute inset-0 opacity-[0.03] pointer-events-none;
+    background-image: radial-gradient(#1a1a1a 2px, transparent 2px);
+    background-size: 30px 30px;
+}
+
+/* --- Contenedor de Contenido --- */
+.hero-content {
+    @apply relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center;
+}
+
+/* --- Tipografía --- */
+.hero-greeting {
+    @apply text-marca-rojo font-black tracking-widest uppercase text-sm md:text-base mb-4 block;
+}
+
+.hero-title {
+    @apply text-6xl md:text-8xl lg:text-[7rem] font-black uppercase tracking-tighter leading-[0.85] text-marca-negro mb-6 drop-shadow-sm;
+}
+
+.hero-desc {
+    @apply text-lg md:text-xl text-gray-600 font-light max-w-lg leading-relaxed mb-10;
+}
+
+/* --- Badges (Etiquetas de Tecnologías) --- */
+.tech-badge-container {
+    @apply flex flex-wrap gap-3 mb-8;
+}
+
+.tech-badge {
+    @apply border-2 border-marca-negro text-marca-negro font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full transition-all duration-300 hover:bg-marca-negro hover:text-marca-blanco;
+}
+
+/* --- Botones --- */
+.hero-botones {
+    @apply flex flex-col sm:flex-row gap-6;
+}
+
+/* Botón principal con sombra sólida negra */
+.btn-hero-primary {
+    @apply bg-marca-rojo text-marca-blanco font-black text-lg py-4 px-10 rounded-full
+    shadow-[6px_6px_0px_0px_#1a1a1a]
+    hover:translate-y-1 hover:shadow-[2px_2px_0px_0px_#1a1a1a]
+    transition-all duration-300 text-center;
+}
+
+/* Botón secundario */
+.btn-hero-secondary {
+    @apply bg-transparent border-2 border-marca-negro text-marca-negro font-black text-lg py-4 px-10 rounded-full
+    hover:bg-marca-negro hover:text-marca-blanco
+    transition-all duration-300 text-center;
+}

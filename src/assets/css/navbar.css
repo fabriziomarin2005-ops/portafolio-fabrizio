@@ -1,0 +1,46 @@
+/* --- Contenedor Principal --- */
+    .nav-premium {
+        @apply fixed top-0 w-full z-50 transition-all duration-500 py-6 px-6 md:px-12 flex justify-between items-center;
+    }
+
+    /* --- Estados del Scroll --- */
+    .nav-top {
+        @apply bg-transparent;
+    }
+
+    .nav-scrolled {
+        @apply bg-marca-blanco/90 backdrop-blur-md shadow-lg py-3;
+    }
+
+    /* --- Logo --- */
+    .nav-logo {
+        @apply text-2xl font-black tracking-tighter text-marca-negro transition-all duration-300 hover:scale-105;
+    }
+
+    /* --- Menú y Enlaces --- */
+    .nav-menu {
+        @apply hidden md:flex gap-8 font-medium text-sm tracking-widest uppercase items-center relative;
+    }
+
+    .nav-link {
+        @apply relative py-2 font-bold text-marca-negro transition-colors duration-300 hover:text-marca-rojo;
+    }
+
+    /* El efecto "Underline" animado que tú mismo creaste */
+    .nav-link::after {
+        content: '';
+        @apply absolute bottom-0 left-0 w-0 h-0.5 bg-marca-rojo transition-all duration-300;
+    }
+
+    .nav-link:hover::after,
+    .router-link-active::after {
+        @apply w-full;
+    }
+
+    /* --- Botón de Acción (Con tu efecto de sombra sólida) --- */
+    .btn-contacto {
+        @apply bg-marca-negro text-marca-blanco font-black text-sm tracking-wider uppercase py-3 px-8 rounded-full
+        shadow-[4px_4px_0px_0px_#dc2626] /* Sombra roja sólida */
+        hover:bg-marca-rojo hover:shadow-[2px_2px_0px_0px_#1a1a1a] /* En hover, la sombra se vuelve negra */
+        transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden;
+    }

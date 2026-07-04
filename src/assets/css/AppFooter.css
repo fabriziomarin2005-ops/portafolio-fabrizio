@@ -1,0 +1,19 @@
+.footer {
+    @apply bg-marca-negro text-marca-blanco py-12 mt-16;
+}
+
+.footer-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center md:text-left;
+}
+
+.footer-brand {
+    @apply text-xl font-bold tracking-tight;
+}
+
+.footer-links {
+    @apply flex justify-center md:justify-end space-x-6;
+}
+
+.footer-social-link {
+    @apply text-gray-400 hover:text-marca-rojo transition-colors duration-300;
+}

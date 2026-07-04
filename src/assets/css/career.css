@@ -1,0 +1,52 @@
+/* --- Contenedor Principal --- */
+.career-section {
+    @apply py-24 bg-marca-blanco;
+}
+
+.career-container {
+    @apply max-w-7xl mx-auto px-6 md:px-12;
+}
+
+.career-grid {
+    @apply grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12;
+}
+
+/* --- Tarjetas Principales --- */
+.career-card {
+    @apply bg-gray-50 rounded-[2rem] p-8 md:p-12 border border-gray-100 shadow-sm transition-all duration-300 hover:shadow-md;
+}
+
+.career-card-title {
+    @apply text-3xl font-black text-marca-negro mb-10 tracking-tight uppercase;
+}
+
+/* --- Estructura del Timeline --- */
+.career-timeline {
+    @apply relative border-l-2 border-gray-200 ml-3 space-y-10;
+}
+
+.timeline-item {
+    @apply relative pl-8;
+}
+
+/* Los puntos de la línea de tiempo */
+.timeline-dot {
+    @apply absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-marca-negro border-4 border-gray-50;
+}
+
+.timeline-dot-active {
+    @apply absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-marca-rojo border-4 border-gray-50 animate-pulse;
+}
+
+/* --- Tipografía del Timeline --- */
+.timeline-role {
+    @apply text-xl font-bold text-marca-negro tracking-tight mb-1;
+}
+
+.timeline-company {
+    @apply text-sm font-bold text-marca-rojo uppercase tracking-widest mb-3;
+}
+
+.timeline-desc {
+    @apply text-base text-gray-600 leading-relaxed font-light;
+}

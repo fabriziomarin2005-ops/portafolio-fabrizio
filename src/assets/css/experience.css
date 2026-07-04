@@ -1,0 +1,52 @@
+/* --- Contenedor Principal --- */
+.experience-section {
+    @apply py-24 bg-gray-50 border-t border-gray-100;
+}
+
+/* --- Título Principal --- */
+.experience-main-heading {
+    @apply text-3xl md:text-5xl font-black text-center text-marca-negro mb-16 max-w-4xl mx-auto leading-tight tracking-tight;
+}
+
+/* --- Grid de las Tarjetas --- */
+.experience-grid {
+    @apply max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8;
+}
+
+/* --- Estilos de las Tarjetas --- */
+.experience-card-text {
+    @apply bg-white rounded-[2rem] p-8 md:p-12 shadow-sm border border-gray-100 flex flex-col justify-center;
+}
+
+.experience-card-img {
+    @apply rounded-[2rem] overflow-hidden shadow-sm h-80 md:h-full w-full relative;
+}
+/* --- Tipografía interna --- */
+.experience-title {
+    @apply text-2xl font-bold text-marca-negro mb-4 tracking-tight;
+}
+
+.experience-paragraph {
+    @apply text-base text-gray-600 mb-8 leading-relaxed font-light;
+}
+
+/* --- Lista de Checkmarks --- */
+.check-list {
+    @apply space-y-6;
+}
+
+.check-item {
+    @apply flex items-start gap-4;
+}
+
+.check-icon {
+    @apply text-blue-500 mt-1 flex-shrink-0 w-6 h-6; /* Puse el check en azul como en tu ejemplo, pero puedes cambiarlo a marca-rojo */
+}
+
+.check-text {
+    @apply text-sm md:text-base text-gray-700 leading-relaxed font-light;
+}
+
+.check-highlight {
+    @apply font-bold text-marca-negro;
+}

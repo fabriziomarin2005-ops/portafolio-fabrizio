@@ -1,4 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
+// Solo importamos la vista principal de forma directa
 import HomeView from '../views/HomeView.vue'
 
 const routes = [
@@ -8,18 +9,28 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    path: '/proyectos',
+    name: 'proyectos',
+    component: () => import('../views/ProyectosView.vue')
+  },
+  {
+    path: '/tutorias',
+    name: 'tutorias',
+    component: () => import('../views/TutoriasView.vue')
+  },
+  {
+    path: '/contacto',
+    name: 'contacto',
+    component: () => import('../views/ContactoView.vue')
   }
 ]
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes
+  routes,
+  scrollBehavior () {
+    return { top: 0 }
+  }
 })
 
 export default router

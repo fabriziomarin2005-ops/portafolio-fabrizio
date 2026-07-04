@@ -1,0 +1,42 @@
+/*Importaciones*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    /*  Color de fondo general y color de texto por defecto a toda la página */
+    body {
+        @apply bg-marca-blanco text-marca-negro font-sans antialiased;
+    }
+    /*Tamaño de los títulos*/
+    h1 {
+        @apply text-4xl md:text-5xl font-bold tracking-tight text-marca-negro mb-4;
+    }
+
+    h2 {
+        @apply text-3xl font-bold text-marca-negro mb-3;
+    }
+
+    /* Textos de párrafos normales */
+    p {
+        @apply text-base md:text-lg leading-relaxed text-gray-700 mb-4;
+    }
+}
+
+/*Componentes*/
+@layer components {
+    /* Un botón primario genérico*/
+    .btn-primario {
+        @apply inline-flex items-center justify-center px-6 py-3 rounded-full font-semibold text-marca-blanco bg-marca-rojo hover:bg-red-700 transition-colors duration-300 shadow-md;
+    }
+
+    /* Un botón secundario (estilo fantasma) */
+    .btn-secundario {
+        @apply inline-flex items-center justify-center px-6 py-3 rounded-full font-semibold text-marca-negro bg-transparent border-2 border-marca-negro hover:bg-marca-negro hover:text-marca-blanco transition-all duration-300;
+    }
+
+    /* Un contenedor estándar */
+    .seccion-contenedor {
+        @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+    }
+}
