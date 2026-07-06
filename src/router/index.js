@@ -1,7 +1,8 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 // Solo importamos la vista principal de forma directa
 import HomeView from '../views/HomeView.vue'
-
+import ProyectosView from '../views/ProyectosView.vue'
+import SobreMiView from '../views/SobreMiView.vue'
 const routes = [
   {
     path: '/',
@@ -11,7 +12,7 @@ const routes = [
   {
     path: '/proyectos',
     name: 'proyectos',
-    component: () => import('../views/ProyectosView.vue')
+    component: ProyectosView
   },
   {
     path: '/tutorias',
@@ -22,6 +23,11 @@ const routes = [
     path: '/contacto',
     name: 'contacto',
     component: () => import('../views/ContactoView.vue')
+  },
+  {
+    path: '/sobre-mi',
+    name: 'sobre-mi',
+    component: SobreMiView
   }
 ]
 

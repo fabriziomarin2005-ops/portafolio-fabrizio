@@ -1,0 +1,69 @@
+/* --- Contenedor Principal --- */
+.projects-section {
+    @apply py-32 bg-marca-negro text-marca-blanco relative;
+}
+
+.projects-header {
+    @apply max-w-7xl mx-auto px-6 md:px-12 mb-16;
+}
+
+.projects-title {
+    @apply text-4xl md:text-6xl font-black uppercase tracking-tighter leading-tight;
+}
+
+/* --- Cuadrícula Bento --- */
+.bento-grid {
+    @apply max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-6;
+}
+
+/* --- Estructura de las Tarjetas --- */
+.bento-card {
+    @apply relative overflow-hidden rounded-[2rem] bg-gray-900 border border-gray-800 p-8 flex flex-col justify-end min-h-[400px] transition-all duration-500 hover:border-marca-rojo/50;
+}
+
+/* Tamaños en la cuadrícula */
+.card-large {
+    @apply md:col-span-8; /* Ocupa 2/3 de la pantalla */
+}
+
+.card-small {
+    @apply md:col-span-4; /* Ocupa 1/3 de la pantalla */
+}
+
+.card-medium {
+    @apply md:col-span-6; /* Ocupa 1/2 de la pantalla */
+}
+
+/* --- Fondos y Efectos Visuales --- */
+.bento-bg {
+    @apply absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-900/80 to-transparent z-10 transition-opacity duration-500 group-hover:opacity-90;
+}
+
+.bento-img {
+    @apply absolute inset-0 w-full h-full object-cover opacity-40 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700;
+}
+
+/* --- Contenido (Textos y Etiquetas) --- */
+.bento-content {
+    @apply relative z-20 translate-y-4 group-hover:translate-y-0 transition-transform duration-500;
+}
+
+.project-tag-container {
+    @apply flex flex-wrap gap-2 mb-4;
+}
+
+.project-tag {
+    @apply px-3 py-1 text-[10px] font-bold uppercase tracking-widest bg-marca-rojo text-white rounded-full;
+}
+
+.project-tag-dark {
+    @apply px-3 py-1 text-[10px] font-bold uppercase tracking-widest bg-gray-800 text-gray-300 rounded-full border border-gray-700;
+}
+
+.project-title {
+    @apply text-3xl font-bold text-white mb-2 tracking-tight;
+}
+
+.project-desc {
+    @apply text-gray-400 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100;
+}

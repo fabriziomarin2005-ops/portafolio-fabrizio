@@ -1,14 +1,9 @@
 <template>
-  <div></div>
+  <div class="tutorias-page">
+    <TutoringSection />
+  </div>
 </template>
 
-<script>
-
-export default {
-  name: 'TutoriasView',
-  data () {
-    return {
-    }
-  }
-}
+<script setup>
+import TutoringSection from '@/components/home/TutoringSection.vue'
 </script>

@@ -1,6 +1,6 @@
 <template>
-  <header :class="['nav-premium', isScrolled ? 'nav-scrolled' : 'nav-top']">
-    <div class="max-w-7xl mx-auto w-full flex justify-between items-center">
+<header :class="['nav-premium transition-colors duration-300', isSolid ? 'nav-scrolled bg-white border-b border-gray-100' : 'nav-top bg-transparent']">
+<div class="max-w-7xl mx-auto w-full flex justify-between items-center">
 
       <!-- Logo (z-50 para que quede por encima del menú móvil) -->
       <router-link to="/" class="nav-logo z-50" @click="closeMenu">
@@ -12,6 +12,7 @@
         <router-link to="/" class="nav-link">Inicio</router-link>
         <router-link to="/proyectos" class="nav-link">Proyectos</router-link>
         <router-link to="/tutorias" class="nav-link">Tutorías</router-link>
+        <router-link to="/sobre-mi" class="nav-link">Sobre Mí</router-link>
       </nav>
 
       <!-- Botón de Escritorio -->
@@ -45,10 +46,17 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, computed } from 'vue'
+import { useRoute } from 'vue-router'
 
+const route = useRoute() // Esto nos dice en qué página estamos
 const isScrolled = ref(false)
-const isMenuOpen = ref(false) // Estado para el menú móvil
+const isMenuOpen = ref(false)
+
+// LA MAGIA: El Nav será blanco sólido si bajamos el scroll O si NO estamos en el inicio ('/')
+const isSolid = computed(() => {
+  return isScrolled.value || route.path !== '/'
+})
 
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 50
@@ -56,7 +64,6 @@ const handleScroll = () => {
 
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value
-  // Bloquear el scroll del fondo cuando el menú está abierto
   if (isMenuOpen.value) {
     document.body.style.overflow = 'hidden'
   } else {
