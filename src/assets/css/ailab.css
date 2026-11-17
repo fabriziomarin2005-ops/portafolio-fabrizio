@@ -1,0 +1,126 @@
+/* --- Contenedor Principal --- */
+.ailab-section {
+    @apply py-20 sm:py-32 bg-marca-blanco dark:bg-[#0b0b0e] text-marca-negro dark:text-white relative border-t border-gray-200 dark:border-gray-800 transition-colors duration-300;
+}
+
+.ailab-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 md:px-12;
+}
+
+/* --- Encabezado --- */
+.ailab-header {
+    @apply flex flex-col lg:flex-row lg:items-end justify-between mb-12 sm:mb-16 gap-6;
+}
+
+.ailab-kicker {
+    @apply font-mono text-marca-rojo font-bold uppercase tracking-widest text-xs sm:text-sm mb-3 block;
+}
+
+.ailab-title {
+    @apply text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tighter leading-[0.9] text-marca-negro dark:text-white;
+}
+
+.ailab-subtitle {
+    @apply text-sm sm:text-base text-gray-600 dark:text-gray-400 max-w-xl font-light leading-relaxed mb-0;
+}
+
+/* --- Grid Principal del Laboratorio --- */
+.ailab-grid {
+    @apply grid grid-cols-1 lg:grid-cols-12 gap-8 items-start;
+}
+
+/* --- Columna Izquierda: Tarjetas Selector (Mobile-First) --- */
+.ailab-sidebar {
+    @apply lg:col-span-5 flex flex-col gap-4;
+}
+
+.ailab-tab-card {
+    @apply w-full text-left p-5 sm:p-6 rounded-2xl border-2 transition-all duration-500 ease-apple flex flex-col items-start active:scale-[0.98] select-none;
+}
+
+.ailab-tab-active {
+    @apply bg-marca-negro dark:bg-[#16161f] text-white border-marca-negro dark:border-marca-rojo shadow-[6px_6px_0px_0px_#dc2626] -translate-y-0.5;
+}
+
+.ailab-tab-inactive {
+    @apply bg-white dark:bg-[#111116] text-marca-negro dark:text-gray-200 border-gray-200 dark:border-gray-800 hover:border-marca-negro dark:hover:border-gray-600 hover:-translate-y-0.5;
+}
+
+.ailab-tab-badge {
+    @apply font-mono text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full bg-marca-rojo text-white;
+}
+
+.ailab-tab-title {
+    @apply text-lg sm:text-xl font-black tracking-tight mb-1.5;
+}
+
+.ailab-tab-desc {
+    @apply text-xs sm:text-sm opacity-80 leading-relaxed mb-4 font-light;
+}
+
+.ailab-tab-metrics {
+    @apply flex flex-wrap gap-1.5 mt-auto;
+}
+
+.ailab-mini-tag {
+    @apply font-mono text-[10px] px-2 py-0.5 rounded bg-black/10 dark:bg-white/10 font-semibold;
+}
+
+.ailab-tab-active .ailab-mini-tag {
+    @apply bg-white/15 text-gray-100;
+}
+
+/* --- Columna Derecha: Ventana de Terminal --- */
+.ailab-terminal-wrapper {
+    @apply lg:col-span-7 w-full;
+}
+
+.ailab-terminal {
+    @apply w-full rounded-[1.5rem] sm:rounded-[2rem] bg-[#0d0d12] border-2 border-marca-negro dark:border-gray-700 shadow-[8px_8px_0px_0px_#1a1a1a] dark:shadow-[8px_8px_0px_0px_#dc2626] overflow-hidden;
+}
+
+/* Barra Superior de la Ventana */
+.terminal-topbar {
+    @apply bg-[#16161e] px-4 sm:px-6 py-3.5 border-b border-gray-800 flex items-center justify-between gap-2;
+}
+
+.terminal-action-btn {
+    @apply font-mono text-[11px] font-bold px-3 py-1.5 rounded-lg bg-gray-800 text-gray-200 hover:bg-gray-700 active:scale-95 transition-all duration-200;
+}
+
+.terminal-run-btn {
+    @apply font-mono text-[11px] font-bold px-3.5 py-1.5 rounded-lg bg-marca-rojo text-white hover:bg-red-700 active:scale-95 transition-all disabled:opacity-50;
+}
+
+/* Área de Código */
+.terminal-code-area {
+    @apply p-4 sm:p-6 bg-[#0d0d12] border-b border-gray-800/90 max-h-[320px] sm:max-h-[360px] overflow-y-auto;
+}
+
+/* Consola de Salida */
+.terminal-output-area {
+    @apply p-4 sm:p-6 bg-[#09090d];
+}
+
+.terminal-output-box {
+    @apply p-3.5 sm:p-4 rounded-xl bg-black/80 border border-gray-800 overflow-x-auto;
+}
+
+/* Cambio de módulo en la terminal */
+.code-swap-enter-active {
+    transition: opacity 0.35s var(--ease-apple-soft), transform 0.5s var(--ease-apple), filter 0.35s var(--ease-apple-soft);
+}
+
+.code-swap-leave-active {
+    transition: opacity 0.15s ease-in;
+}
+
+.code-swap-enter-from {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+    filter: blur(4px);
+}
+
+.code-swap-leave-to {
+    opacity: 0;
+}

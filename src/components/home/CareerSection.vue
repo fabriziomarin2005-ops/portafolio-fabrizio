@@ -1,70 +1,135 @@
 <template>
-  <section class="career-section">
+  <section class="career-section" id="trayectoria">
     <div class="career-container">
 
-      <div class="mb-20 text-center">
-        <span class="text-marca-rojo font-bold uppercase tracking-widest text-sm mb-4 block">El Camino</span>
-        <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-marca-negro tracking-tight uppercase leading-[0.9]">
-          Dónde he estado y <br class="hidden md:block"> hacia dónde voy.
+      <!-- Encabezado de Sección -->
+      <div class="career-header" v-reveal-group="{ step: 140 }">
+        <span class="career-kicker">// El Camino & Evolución</span>
+        <h2 class="career-main-title">
+          Dónde he estado y <br class="hidden md:block">
+          <span class="text-marca-rojo">hacia dónde voy.</span>
         </h2>
       </div>
 
-      <div class="career-grid">
+      <!-- Grid de 2 Columnas (Mobile-First) -->
+      <div class="career-grid" v-reveal-group="{ step: 160 }">
 
+        <!-- Columna 1: Experiencia Consolidada -->
         <div class="career-card">
-          <h3 class="career-card-title">Mi Experiencia</h3>
-          <div class="career-timeline">
+          <div class="career-card-header">
+            <h3 class="career-card-title">Mi Experiencia</h3>
+            <span class="career-card-badge">Producción & Liderazgo</span>
+          </div>
 
+          <div class="career-timeline" v-reveal-group="{ delay: 260, step: 130 }">
+
+            <!-- Item 1 -->
             <div class="timeline-item">
               <div class="timeline-dot"></div>
+              <span class="timeline-date">Universidad Mundo Maya (UMMA)</span>
               <h4 class="timeline-role">Desarrollo en Depto. de Sistemas</h4>
-              <p class="timeline-company">Universidad Mundo Maya</p>
               <p class="timeline-desc">
-                Mantenimiento, documentación técnica y actualización de los sistemas institucionales CAE y SIPA, asegurando la estabilidad operativa y optimizando procesos internos.
+                Desarrollo evolutivo, mantenimiento, documentación técnica y optimización de los sistemas institucionales <strong>CAE</strong> (gestión extracurricular) y <strong>SIPA</strong> (gestión de adquisiciones), asegurando la estabilidad operativa.
               </p>
+              <div class="timeline-tags">
+                <span class="timeline-tag">Laravel</span>
+                <span class="timeline-tag">Vue.js</span>
+                <span class="timeline-tag">Blade</span>
+                <span class="timeline-tag">SQL</span>
+              </div>
             </div>
 
+            <!-- Item 2 -->
             <div class="timeline-item">
               <div class="timeline-dot"></div>
-              <h4 class="timeline-role">Asesor y Tutor Privado</h4>
-              <p class="timeline-company">Matemáticas y Física</p>
+              <span class="timeline-date">+2 Años de Trayectoria · Top 10 Estatal</span>
+              <h4 class="timeline-role">Asesor y Tutor Técnico Privado</h4>
               <p class="timeline-desc">
-                Más de 2 años impartiendo tutorías personalizadas. Aplico metodologías analíticas para simplificar conceptos complejos, respaldado por un Top 10 estatal en matemáticas.
+                Impartición de mentorías personalizadas en Matemáticas, Física y Lógica de Programación. Aplicación de metodologías analíticas para simplificar problemas complejos y formar pensamiento computacional.
               </p>
+              <div class="timeline-tags">
+                <span class="timeline-tag">Cálculo & Álgebra</span>
+                <span class="timeline-tag">Física</span>
+                <span class="timeline-tag">Algoritmos</span>
+              </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <span class="timeline-date">Formación & Certificaciones</span>
+              <h4 class="timeline-role">Ingeniería en Ciencia de Datos</h4>
+              <p class="timeline-desc">
+                Especialización continua en modelado estadístico, redes neuronales, bases de datos relacionales/NoSQL y análisis avanzado de datos.
+              </p>
+              <div class="timeline-tags">
+                <span class="timeline-tag">Python</span>
+                <span class="timeline-tag">R Studio</span>
+                <span class="timeline-tag">SQL</span>
+                <span class="timeline-tag">MongoDB Atlas</span>
+              </div>
             </div>
 
           </div>
         </div>
 
-        <div class="career-card">
-          <h3 class="career-card-title">Mi Actualidad</h3>
-          <div class="career-timeline">
+        <!-- Columna 2: Mi Actualidad (Proyectos Activos & Enfoque) -->
+        <div class="career-card career-card-active">
+          <div class="career-card-header">
+            <h3 class="career-card-title">Mi Actualidad</h3>
+            <span class="career-card-badge-active">
+              <span class="w-2 h-2 rounded-full bg-white animate-ping"></span>
+              En Desarrollo Activo
+            </span>
+          </div>
 
+          <div class="career-timeline" v-reveal-group="{ delay: 260, step: 130 }">
+
+            <!-- Item Activo 1 -->
             <div class="timeline-item">
               <div class="timeline-dot-active"></div>
-              <h4 class="timeline-role">Sistema de Gestión de Adquisiciones</h4>
-              <p class="timeline-company">Proyecto Full-Stack</p>
+              <span class="timeline-date">Full-Stack Architecture</span>
+              <h4 class="timeline-role">Sistema de Gestión de Adquisiciones (SIPA)</h4>
               <p class="timeline-desc">
-                Desarrollando la arquitectura, migraciones de base de datos e interfaz de usuario utilizando Vue.js, Vuetify, Tailwind CSS y Laravel.
+                Escalando la arquitectura, migraciones de base de datos, filtrado optimizado por <code>idEstudio</code> e interfaz de usuario administrativa con componentes reactivos.
               </p>
+              <div class="timeline-tags">
+                <span class="timeline-tag">Vue.js</span>
+                <span class="timeline-tag">Vuetify</span>
+                <span class="timeline-tag">Tailwind CSS</span>
+                <span class="timeline-tag">Laravel</span>
+              </div>
             </div>
 
+            <!-- Item Activo 2 -->
             <div class="timeline-item">
               <div class="timeline-dot-active"></div>
-              <h4 class="timeline-role">Proyecto "Radar de Fichajes"</h4>
-              <p class="timeline-company">Data Science / Scouting</p>
+              <span class="timeline-date">GenAI & Cloud Prototyping</span>
+              <h4 class="timeline-role">Prototipado de Aplicaciones con IA</h4>
               <p class="timeline-desc">
-                Construyendo modelos de análisis deportivo y evaluación de jugadores utilizando Python, Pandas, DuckDB y procesamiento de datos de StatsBomb.
+                Diseño y experimentación de soluciones de software impulsadas por Inteligencia Artificial utilizando Google AI Studio, Gemini API y modelos generativos para automatización inteligente.
               </p>
+              <div class="timeline-tags">
+                <span class="timeline-tag">Gemini API</span>
+                <span class="timeline-tag">Google AI Studio</span>
+                <span class="timeline-tag">Python</span>
+              </div>
             </div>
 
+            <!-- Item Activo 3 -->
             <div class="timeline-item">
               <div class="timeline-dot-active"></div>
-              <h4 class="timeline-role">Transición Estratégica</h4>
-              <p class="timeline-company">Análisis de Datos y Finanzas</p>
+              <span class="timeline-date">Data Science & Analytics</span>
+              <h4 class="timeline-role">Radar de Fichajes & Transición Corporativa</h4>
               <p class="timeline-desc">
-                Finalizando mis estudios en Data Science con el objetivo de integrarme a equipos de alto rendimiento en el sector financiero o análisis de datos corporativo.
+                Construyendo modelos de evaluación deportiva con datos de StatsBomb, Pandas y DuckDB, enfocando mi perfil hacia equipos de alto rendimiento en ciencia de datos, ingeniería de software y sector financiero.
               </p>
+              <div class="timeline-tags">
+                <span class="timeline-tag">Python</span>
+                <span class="timeline-tag">DuckDB</span>
+                <span class="timeline-tag">Pandas</span>
+                <span class="timeline-tag">StatsBomb</span>
+              </div>
             </div>
 
           </div>
@@ -74,5 +139,8 @@
     </div>
   </section>
 </template>
+
+<script setup>
+</script>
 
 <style scoped src="@/assets/css/career.css"></style>

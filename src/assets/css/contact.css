@@ -1,0 +1,130 @@
+/* --- Contenedor Principal (Mobile-First) --- */
+.contact-section {
+    @apply py-20 sm:py-32 bg-gray-50 dark:bg-[#0e0e13] border-t border-gray-200 dark:border-gray-800 transition-colors duration-300 overflow-hidden;
+}
+
+.contact-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 md:px-12;
+}
+
+.contact-grid {
+    @apply grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-16 items-start;
+}
+
+/* --- Columna Izquierda: Información y Canales (Con protección anti-desborde) --- */
+.contact-info-col {
+    @apply lg:col-span-5 flex flex-col items-start min-w-0 w-full;
+}
+
+.contact-kicker {
+    @apply font-mono text-marca-rojo font-bold uppercase tracking-widest text-xs sm:text-sm mb-3 block;
+}
+
+/* Tamaño ajustado para que EXTRAORDINARIO nunca invada la columna derecha */
+.contact-title {
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-[2.6rem] xl:text-5xl font-black text-marca-negro dark:text-white uppercase tracking-tighter leading-[0.95] mb-6 break-words w-full;
+}
+
+.contact-desc {
+    @apply text-sm sm:text-base text-gray-600 dark:text-gray-300 font-light leading-relaxed mb-8;
+}
+
+.contact-desc strong {
+    @apply font-bold text-marca-negro dark:text-white;
+}
+
+/* Tarjetas de Canales Directos */
+.contact-channels {
+    @apply flex flex-col gap-4 w-full;
+}
+
+.channel-card {
+    @apply flex items-center gap-3.5 sm:gap-4 p-4 rounded-2xl bg-white dark:bg-[#14141c] border-2 border-gray-200 dark:border-gray-800 transition-all duration-500 ease-apple hover:border-marca-negro dark:hover:border-marca-rojo hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_0px_#1a1a1a] dark:hover:shadow-[5px_5px_0px_0px_#dc2626] active:scale-[0.98] w-full;
+}
+
+.channel-icon-box {
+    @apply w-11 h-11 rounded-xl bg-gray-100 dark:bg-gray-900 text-marca-negro dark:text-white flex items-center justify-center flex-shrink-0 transition-colors duration-200;
+}
+
+.channel-label {
+    @apply font-mono text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400 font-bold mb-0.5;
+}
+
+.channel-value {
+    @apply text-xs sm:text-sm font-black text-marca-negro dark:text-white mb-0;
+}
+
+.channel-copy-btn {
+    @apply font-mono text-[11px] font-bold px-3 py-1.5 rounded-lg bg-marca-negro dark:bg-gray-800 text-white hover:bg-marca-rojo active:scale-90 transition-all duration-200 flex-shrink-0 select-none;
+}
+
+.channel-arrow {
+    @apply font-mono text-base font-bold text-gray-400 group-hover:text-marca-rojo group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300 ease-apple px-2;
+}
+
+/* --- Columna Derecha: Tarjeta del Formulario --- */
+.contact-form-wrapper {
+    @apply lg:col-span-7 w-full min-w-0 relative z-10;
+}
+
+.contact-form-card {
+    @apply bg-white dark:bg-[#14141c] p-6 sm:p-10 rounded-[1.75rem] sm:rounded-[2rem] border-2 border-marca-negro dark:border-gray-700 shadow-[8px_8px_0px_0px_#dc2626] transition-shadow duration-500 ease-apple focus-within:shadow-[12px_12px_0px_0px_#dc2626];
+}
+
+/* Selector de Categorías */
+.topic-selector-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-2.5;
+}
+
+.topic-select-btn {
+    @apply py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider border-2 text-left transition-all duration-300 ease-apple active:scale-[0.97] select-none;
+}
+
+.topic-select-active {
+    @apply bg-marca-negro dark:bg-marca-rojo text-white border-marca-negro dark:border-marca-rojo shadow-[3px_3px_0px_0px_#dc2626] dark:shadow-[3px_3px_0px_0px_#ffffff];
+}
+
+.topic-select-inactive {
+    @apply bg-gray-50 dark:bg-[#0e0e13] text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-800 hover:border-gray-400 dark:hover:border-gray-600 hover:-translate-y-0.5;
+}
+
+/* Campos de Entrada */
+.form-fields-group {
+    @apply space-y-5 mb-6;
+}
+
+.form-label {
+    @apply font-mono text-xs font-bold uppercase tracking-wider text-marca-negro dark:text-gray-200 block mb-2;
+}
+
+.form-input {
+    @apply w-full px-4 py-3.5 rounded-xl bg-gray-50 dark:bg-[#0b0b0e] border-2 border-gray-200 dark:border-gray-800 text-sm text-marca-negro dark:text-white placeholder-gray-400 focus:outline-none focus:ring-0 focus:border-marca-rojo dark:focus:border-marca-rojo focus:bg-white dark:focus:bg-[#0e0e13] focus:shadow-[4px_4px_0px_0px_#dc2626] transition-all duration-300 ease-apple;
+}
+
+.form-success-banner {
+    @apply mb-5 p-3.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300 text-xs font-bold;
+}
+
+/* Botón de Envío */
+.btn-contact-submit {
+    @apply w-full inline-flex items-center justify-center gap-3 bg-marca-rojo text-white font-black text-sm sm:text-base tracking-wider uppercase py-4 px-8 rounded-full
+    shadow-[5px_5px_0px_0px_#1a1a1a] dark:shadow-[5px_5px_0px_0px_#ffffff]
+    hover:-translate-y-0.5 hover:shadow-[8px_8px_0px_0px_#1a1a1a] dark:hover:shadow-[8px_8px_0px_0px_#ffffff]
+    active:translate-y-1 active:scale-[0.98] active:shadow-[1px_1px_0px_0px_#1a1a1a] dark:active:shadow-[1px_1px_0px_0px_#ffffff]
+    transition-all duration-300 ease-apple select-none;
+}
+
+/* Aparición del banner de confirmación */
+.banner-enter-active {
+    transition: opacity 0.45s var(--ease-apple-soft), transform 0.6s var(--ease-apple);
+}
+
+.banner-leave-active {
+    transition: opacity 0.25s ease-in, transform 0.25s ease-in;
+}
+
+.banner-enter-from,
+.banner-leave-to {
+    opacity: 0;
+    transform: translate3d(0, -8px, 0) scale(0.98);
+}

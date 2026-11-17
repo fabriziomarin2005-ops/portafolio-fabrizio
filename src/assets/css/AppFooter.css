@@ -1,19 +1,66 @@
+/* --- Contenedor Principal del Footer --- */
 .footer {
-    @apply bg-marca-negro text-marca-blanco py-12 mt-16;
+    @apply bg-marca-negro dark:bg-[#070709] text-marca-blanco py-12 sm:py-16 border-t border-gray-800;
 }
 
 .footer-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center md:text-left;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center md:text-left;
+}
+
+/* --- Columna 1: Marca --- */
+.footer-brand-col {
+    @apply flex flex-col items-center md:items-start;
 }
 
 .footer-brand {
-    @apply text-xl font-bold tracking-tight;
+    @apply text-2xl font-black tracking-tighter text-white hover:opacity-90 transition-opacity;
+}
+
+.footer-role {
+    @apply font-mono text-xs text-gray-400 mt-1.5 mb-0;
+}
+
+/* --- Columna 2: Stack & Copyright --- */
+.footer-center-col {
+    @apply flex flex-col items-center justify-center;
+}
+
+.footer-stack-row {
+    @apply flex flex-wrap justify-center gap-1.5 mb-3;
+}
+
+.footer-tech-pill {
+    @apply font-mono text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-gray-900 text-gray-300 border border-gray-800 transition-colors duration-300 hover:border-marca-rojo hover:text-white;
+}
+
+.footer-copy {
+    @apply text-gray-500 text-xs mb-0;
+}
+
+/* --- Columna 3: Enlaces y Botón Subir --- */
+.footer-links-col {
+    @apply flex flex-col sm:flex-row md:flex-col lg:flex-row items-center justify-center md:justify-end gap-4 sm:gap-6;
 }
 
 .footer-links {
-    @apply flex justify-center md:justify-end space-x-6;
+    @apply flex items-center justify-center space-x-5;
 }
 
+/* Enlace con subrayado animado (crece desde la izquierda) */
 .footer-social-link {
-    @apply text-gray-400 hover:text-marca-rojo transition-colors duration-300;
+    @apply relative font-mono text-xs font-bold uppercase tracking-wider text-gray-400 hover:text-white active:text-marca-rojo py-1;
+    background-image: linear-gradient(#dc2626, #dc2626);
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0% 2px;
+    transition: color 300ms var(--ease-apple), background-size 500ms var(--ease-apple);
+}
+
+.footer-social-link:hover,
+.footer-social-link:focus-visible {
+    background-size: 100% 2px;
+}
+
+.footer-scroll-top {
+    @apply inline-flex items-center gap-1.5 font-mono text-xs font-bold uppercase tracking-wider px-3.5 py-2 rounded-full bg-gray-900 text-white border border-gray-700 hover:border-marca-rojo hover:bg-marca-rojo hover:shadow-[3px_3px_0px_0px_#ffffff] transition-all duration-300 ease-apple active:scale-95 active:bg-marca-rojo;
 }

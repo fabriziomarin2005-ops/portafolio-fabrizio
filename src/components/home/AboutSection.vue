@@ -1,47 +1,98 @@
 <template>
-  <section class="about-section">
-    <div class="max-w-7xl mx-auto px-6 md:px-12">
+  <section class="about-section" id="ventaja">
+    <div class="about-container">
 
       <!-- Encabezado de la sección -->
-      <div>
-        <span class="about-subheading">Ventaja Competitiva</span>
-        <h2 class="about-heading">
-          Por qué soy <br>
-          <span class="text-gray-200">Diferente.</span>
-        </h2>
+      <div class="about-header" v-reveal-group="{ step: 150 }">
+        <div>
+          <span class="about-subheading">// Ventaja Competitiva</span>
+          <h2 class="about-heading">
+            Por qué soy <br>
+            <span class="about-heading-muted">Diferente.</span>
+          </h2>
+        </div>
+
+        <p class="about-lead">
+          La mayoría de los perfiles se dividen entre quienes solo maquetan interfaces y quienes solo analizan datos aislados. Yo conecto ambos mundos para llevar modelos analíticos e IA directamente a sistemas en producción.
+        </p>
       </div>
 
-      <!-- Grid de 3 Pilares -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Grid de 3 Pilares (Mobile-First) -->
+      <div class="about-grid" v-reveal-group="{ step: 140 }">
 
-        <!-- Pilar 1: Técnico -->
-        <div class="diferenciador-card">
-          <h3 class="diferenciador-titulo text-marca-negro">01. Data + Full-Stack</h3>
+        <!-- Pilar 1: Ingeniería Híbrida -->
+        <article class="diferenciador-card group">
+          <div class="card-top-meta">
+            <span class="pilar-num">01</span>
+            <span class="pilar-badge">Arquitectura End-to-End</span>
+          </div>
+
+          <h3 class="diferenciador-titulo">
+            Data Science + Full-Stack
+          </h3>
+
           <p class="about-text">
-            No me limito a crear interfaces. Combino el desarrollo ágil usando <strong>Vue.js y Laravel</strong> con la capacidad analítica profunda de <strong>Python y SQL</strong>. Comprendo la arquitectura desde el procesamiento masivo en bases de datos hasta el último píxel que ve el usuario final.
+            No me limito a crear vistas estáticas. Combino el desarrollo ágil en <strong>Laravel y Vue.js</strong> con el poder analítico de <strong>Python, SQL y R Studio</strong>. Domino el flujo desde la ingesta y limpieza en base de datos hasta el último píxel interactivo que utiliza el usuario final.
           </p>
-        </div>
 
-        <!-- Pilar 2: Tu Filosofía (Destacada en Negro y Rojo) -->
-        <div class="diferenciador-card-destacada">
-          <h3 class="diferenciador-titulo text-white">02. Diseño Intencional</h3>
+          <div class="pilar-deliverables" v-reveal-group="{ delay: 480, step: 70, variant: 'zoom' }">
+            <span class="deliverable-chip">Sistemas Institucionales</span>
+            <span class="deliverable-chip">Consultas SQL Optimizadas</span>
+            <span class="deliverable-chip">APIs RESTful</span>
+          </div>
+        </article>
+
+        <!-- Pilar 2: IA & Diseño Intencional (Destacada en Negro y Rojo) -->
+        <article class="diferenciador-card-destacada group">
+          <div class="card-top-meta">
+            <span class="pilar-num-destacado">02</span>
+            <span class="pilar-badge-destacado">Innovación Aplicada ⚡</span>
+          </div>
+
+          <h3 class="diferenciador-titulo-dark">
+            IA & Diseño Intencional
+          </h3>
+
           <p class="about-text-dark">
-            Mi filosofía de trabajo se basa en la productividad consciente y la estructuración de sistemas, no en simplemente teclear código. Cada línea, componente y consulta a la base de datos tiene un propósito escalable. Creo orden a partir del caos.
+            Mi filosofía se basa en la estructuración consciente de sistemas e integración de <strong>Modelos Generativos (GenAI)</strong>. No escribo código por inercia: cada componente, pipeline de datos y prototipo con IA tiene un propósito medible y escalable. Creo orden a partir del caos.
           </p>
-        </div>
 
-        <!-- Pilar 3: Habilidades Blandas (Comunicación/Mentoría) -->
-        <div class="diferenciador-card">
-          <h3 class="diferenciador-titulo text-marca-negro">03. Traductor de Complejidad</h3>
+          <div class="pilar-deliverables" v-reveal-group="{ delay: 480, step: 70, variant: 'zoom' }">
+            <span class="deliverable-chip-dark">Prototipado con IA</span>
+            <span class="deliverable-chip-dark">Automatización</span>
+            <span class="deliverable-chip-dark">Escalabilidad</span>
+          </div>
+        </article>
+
+        <!-- Pilar 3: Rigor Matemático y Comunicación -->
+        <article class="diferenciador-card group">
+          <div class="card-top-meta">
+            <span class="pilar-num">03</span>
+            <span class="pilar-badge">Liderazgo Técnico</span>
+          </div>
+
+          <h3 class="diferenciador-titulo">
+            Traductor de Complejidad
+          </h3>
+
           <p class="about-text">
-            Tengo la habilidad de explicar lógicas abstractas en términos sencillos y humanos. Ya sea redactando manuales técnicos para sistemas universitarios o dando mentorías de matemáticas y física, mi objetivo es conectar la tecnología con el lenguaje humano.
+            Respaldado por un <strong>Top 10 Estatal en Matemáticas</strong> y más de 2 años como mentor técnico, poseo la habilidad de traducir lógicas abstractas a un lenguaje claro y humano. Desde redactar documentación técnica rigurosa hasta alinear objetivos de negocio.
           </p>
-        </div>
+
+          <div class="pilar-deliverables" v-reveal-group="{ delay: 480, step: 70, variant: 'zoom' }">
+            <span class="deliverable-chip">Documentación SIPA/CAE</span>
+            <span class="deliverable-chip">Lógica Matemática</span>
+            <span class="deliverable-chip">Mentoría Analítica</span>
+          </div>
+        </article>
 
       </div>
 
     </div>
   </section>
 </template>
+
+<script setup>
+</script>
 
 <style scoped src="@/assets/css/about.css"></style>

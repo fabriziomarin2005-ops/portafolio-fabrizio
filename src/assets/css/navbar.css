@@ -1,46 +1,168 @@
 /* --- Contenedor Principal --- */
-    .nav-premium {
-        @apply fixed top-0 w-full z-50 transition-all duration-500 py-6 px-6 md:px-12 flex justify-between items-center;
+.nav-premium {
+    @apply fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-apple py-4 md:py-5 px-4 sm:px-6 md:px-12;
+}
+
+/* --- Barra de progreso de scroll (transform = GPU, sin reflow) --- */
+.scroll-progress {
+    @apply absolute left-0 bottom-0 w-full h-[2px] bg-marca-rojo origin-left pointer-events-none;
+    transform: scaleX(0);
+    will-change: transform;
+}
+
+.nav-container {
+    @apply max-w-7xl mx-auto w-full flex justify-between items-center;
+}
+
+/* --- Estados del Scroll --- */
+.nav-top {
+    @apply bg-transparent;
+}
+
+.nav-scrolled {
+    @apply bg-white/90 dark:bg-[#0e0e12]/90 backdrop-blur-lg border-b border-gray-200/80 dark:border-gray-800 py-3 shadow-sm;
+}
+
+/* --- Logo --- */
+.nav-logo {
+    @apply text-xl sm:text-2xl font-black tracking-tighter text-marca-negro dark:text-white transition-transform duration-500 ease-apple hover:scale-105 active:scale-95;
+}
+
+/* --- Badge de Estado (Disponible) --- */
+.status-pill {
+    @apply items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/80 text-[11px] font-bold text-emerald-700 dark:text-emerald-400 tracking-wide;
+}
+
+.status-dot {
+    @apply w-2 h-2 rounded-full bg-emerald-500 animate-pulse;
+}
+
+/* --- Menú de Escritorio --- */
+.nav-menu {
+    @apply hidden md:flex gap-7 lg:gap-9 font-bold text-xs lg:text-sm tracking-widest uppercase items-center relative;
+}
+
+.nav-link {
+    @apply relative py-2 font-bold text-marca-negro dark:text-gray-200 transition-colors duration-300 hover:text-marca-rojo dark:hover:text-marca-rojo;
+}
+
+.nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-0.5 bg-marca-rojo origin-left scale-x-0 transition-transform duration-500 ease-apple;
+}
+
+.nav-link:hover::after,
+.nav-link.router-link-exact-active::after {
+    @apply scale-x-100;
+}
+
+.nav-link.router-link-exact-active {
+    @apply text-marca-rojo;
+}
+
+/* --- Acciones Derecha --- */
+.nav-actions {
+    @apply flex items-center gap-2.5 sm:gap-3;
+}
+
+/* Botón Dark Mode */
+.theme-toggle-btn {
+    @apply p-2.5 rounded-full border-2 border-marca-negro dark:border-gray-700 bg-white dark:bg-gray-900 text-marca-negro dark:text-gray-200 hover:border-marca-rojo dark:hover:border-marca-rojo hover:rotate-12 transition-all duration-300 ease-apple active:scale-90;
+}
+
+/* Botón Hamburguesa Móvil */
+.hamburger-btn {
+    @apply p-2 rounded-xl border-2 border-marca-negro dark:border-gray-700 bg-white dark:bg-gray-900 text-marca-negro dark:text-white focus:outline-none active:scale-90 transition-all duration-200 ease-apple;
+}
+
+/* --- Botón de Acción Escritorio --- */
+.btn-contacto {
+    @apply bg-marca-negro dark:bg-white text-marca-blanco dark:text-marca-negro font-black text-xs tracking-wider uppercase py-2.5 px-6 rounded-full
+    shadow-[4px_4px_0px_0px_#dc2626]
+    hover:bg-marca-rojo dark:hover:bg-marca-rojo hover:text-white dark:hover:text-white hover:shadow-[2px_2px_0px_0px_#1a1a1a]
+    transition-all duration-300 ease-apple transform hover:-translate-y-0.5 active:translate-y-0.5 active:scale-95 active:shadow-[1px_1px_0px_0px_#dc2626];
+}
+
+/* --- Menú Desplegable Móvil (Fullscreen Drawer) --- */
+.mobile-menu-overlay {
+    @apply fixed inset-0 top-0 left-0 w-full h-screen bg-marca-blanco dark:bg-[#0b0b0e] z-40 flex flex-col justify-between px-6 pt-28 pb-10 overflow-y-auto;
+}
+
+.mobile-menu-links {
+    @apply flex flex-col space-y-5;
+}
+
+.mobile-menu-label {
+    @apply font-mono text-xs font-bold uppercase tracking-widest text-marca-rojo mb-1 block;
+}
+
+.mobile-nav-item {
+    @apply text-2xl sm:text-3xl font-black uppercase tracking-tight text-marca-negro dark:text-white flex items-center gap-3 py-1 transition-all duration-200 active:text-marca-rojo active:translate-x-1;
+}
+
+.mobile-nav-num {
+    @apply font-mono text-sm font-bold text-marca-rojo;
+}
+
+.mobile-nav-item.router-link-exact-active {
+    @apply text-marca-rojo pl-3 border-l-4 border-marca-rojo;
+}
+
+.mobile-menu-footer {
+    @apply pt-6 border-t border-gray-200 dark:border-gray-800 flex flex-col gap-4;
+}
+
+.mobile-status-box {
+    @apply flex items-center gap-2.5 text-xs font-bold text-gray-600 dark:text-gray-400;
+}
+
+.btn-contacto-mobile {
+    @apply w-full bg-marca-rojo text-white font-black text-base tracking-wider uppercase py-4 px-6 rounded-full text-center
+    shadow-[5px_5px_0px_0px_#1a1a1a] dark:shadow-[5px_5px_0px_0px_#ffffff]
+    active:translate-y-1 active:scale-[0.98] active:shadow-[2px_2px_0px_0px_#1a1a1a]
+    transition-all duration-200 select-none;
+}
+
+/* --- Transiciones Suaves del Drawer Móvil --- */
+.mobile-drawer-enter-active {
+    transition: opacity 0.45s var(--ease-apple-soft), clip-path 0.6s var(--ease-apple);
+}
+
+.mobile-drawer-leave-active {
+    transition: opacity 0.25s ease-in, clip-path 0.3s ease-in;
+}
+
+.mobile-drawer-enter-from,
+.mobile-drawer-leave-to {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+}
+
+.mobile-drawer-enter-to,
+.mobile-drawer-leave-from {
+    clip-path: inset(0 0 0 0);
+}
+
+/* Cascada de los enlaces al abrir el menú */
+.mobile-drawer-enter-active .mobile-menu-links > *,
+.mobile-drawer-enter-active .mobile-menu-footer {
+    animation: drawer-item-in 0.7s var(--ease-apple) both;
+}
+
+.mobile-drawer-enter-active .mobile-menu-links > *:nth-child(2) { animation-delay: 60ms; }
+.mobile-drawer-enter-active .mobile-menu-links > *:nth-child(3) { animation-delay: 110ms; }
+.mobile-drawer-enter-active .mobile-menu-links > *:nth-child(4) { animation-delay: 160ms; }
+.mobile-drawer-enter-active .mobile-menu-links > *:nth-child(5) { animation-delay: 210ms; }
+.mobile-drawer-enter-active .mobile-menu-footer { animation-delay: 280ms; }
+
+@keyframes drawer-item-in {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 18px, 0);
     }
 
-    /* --- Estados del Scroll --- */
-    .nav-top {
-        @apply bg-transparent;
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
     }
-
-    .nav-scrolled {
-        @apply bg-marca-blanco/90 backdrop-blur-md shadow-lg py-3;
-    }
-
-    /* --- Logo --- */
-    .nav-logo {
-        @apply text-2xl font-black tracking-tighter text-marca-negro transition-all duration-300 hover:scale-105;
-    }
-
-    /* --- Menú y Enlaces --- */
-    .nav-menu {
-        @apply hidden md:flex gap-8 font-medium text-sm tracking-widest uppercase items-center relative;
-    }
-
-    .nav-link {
-        @apply relative py-2 font-bold text-marca-negro transition-colors duration-300 hover:text-marca-rojo;
-    }
-
-    /* El efecto "Underline" animado que tú mismo creaste */
-    .nav-link::after {
-        content: '';
-        @apply absolute bottom-0 left-0 w-0 h-0.5 bg-marca-rojo transition-all duration-300;
-    }
-
-    .nav-link:hover::after,
-    .router-link-active::after {
-        @apply w-full;
-    }
-
-    /* --- Botón de Acción (Con tu efecto de sombra sólida) --- */
-    .btn-contacto {
-        @apply bg-marca-negro text-marca-blanco font-black text-sm tracking-wider uppercase py-3 px-8 rounded-full
-        shadow-[4px_4px_0px_0px_#dc2626] /* Sombra roja sólida */
-        hover:bg-marca-rojo hover:shadow-[2px_2px_0px_0px_#1a1a1a] /* En hover, la sombra se vuelve negra */
-        transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden;
-    }
+}

@@ -4,22 +4,43 @@
 @tailwind utilities;
 
 @layer base {
-    /*  Color de fondo general y color de texto por defecto a toda la página */
+    /* Color de fondo general y color de texto por defecto a toda la página */
+    html {
+        -webkit-tap-highlight-color: transparent;
+        text-rendering: optimizeLegibility;
+    }
+
     body {
-        @apply bg-marca-blanco text-marca-negro font-sans antialiased;
+        @apply bg-marca-blanco dark:bg-[#0b0b0e] text-marca-negro dark:text-white font-sans antialiased;
+    }
+
+    /* Selección de texto con la identidad de marca */
+    ::selection {
+        @apply bg-marca-rojo text-white;
+    }
+
+    /* Foco accesible por teclado, sin afectar clics ni toques */
+    :focus-visible {
+        outline: 2px solid #dc2626;
+        outline-offset: 3px;
+    }
+
+    /* Ningún título largo debe provocar scroll horizontal en 360px */
+    h1, h2, h3, h4 {
+        overflow-wrap: break-word;
     }
     /*Tamaño de los títulos*/
     h1 {
-        @apply text-4xl md:text-5xl font-bold tracking-tight text-marca-negro mb-4;
+        @apply text-4xl md:text-5xl font-bold tracking-tight text-marca-negro dark:text-white mb-4;
     }
 
     h2 {
-        @apply text-3xl font-bold text-marca-negro mb-3;
+        @apply text-3xl font-bold text-marca-negro dark:text-white mb-3;
     }
 
     /* Textos de párrafos normales */
     p {
-        @apply text-base md:text-lg leading-relaxed text-gray-700 mb-4;
+        @apply text-base md:text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4;
     }
 }
 
@@ -40,3 +61,5 @@
         @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24;
     }
 }
+
+/* Utilidades personalizadas: `no-scrollbar` se registra como plugin en tailwind.config.js */

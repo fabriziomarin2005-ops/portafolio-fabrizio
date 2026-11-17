@@ -1,52 +1,82 @@
-/* --- Contenedor Principal --- */
+/* --- Contenedor Principal (Mobile-First) --- */
 .experience-section {
-    @apply py-24 bg-gray-50 border-t border-gray-100;
+    @apply py-20 sm:py-28 bg-gray-50 dark:bg-[#0b0b0e] border-t border-gray-200 dark:border-gray-800 transition-colors duration-300;
 }
 
-/* --- Título Principal --- */
+.experience-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 md:px-12;
+}
+
+/* --- Encabezado --- */
+.experience-header {
+    @apply text-center max-w-4xl mx-auto mb-12 sm:mb-16;
+}
+
+.experience-kicker {
+    @apply font-mono text-marca-rojo font-bold uppercase tracking-widest text-xs sm:text-sm mb-3 block;
+}
+
 .experience-main-heading {
-    @apply text-3xl md:text-5xl font-black text-center text-marca-negro mb-16 max-w-4xl mx-auto leading-tight tracking-tight;
+    @apply text-3xl sm:text-4xl md:text-5xl font-black text-marca-negro dark:text-white leading-tight tracking-tight;
 }
 
 /* --- Grid de las Tarjetas --- */
 .experience-grid {
-    @apply max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8;
+    @apply grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch;
 }
 
-/* --- Estilos de las Tarjetas --- */
+/* --- Tarjeta de Texto (Izquierda) --- */
 .experience-card-text {
-    @apply bg-white rounded-[2rem] p-8 md:p-12 shadow-sm border border-gray-100 flex flex-col justify-center;
+    @apply transition-all duration-500 ease-apple hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[12px_12px_0px_0px_#1a1a1a] dark:hover:shadow-[12px_12px_0px_0px_#dc2626];
+    @apply lg:col-span-7 bg-white dark:bg-[#13131a] rounded-[1.75rem] sm:rounded-[2rem] p-6 sm:p-10 md:p-12 border-2 border-marca-negro dark:border-gray-800 shadow-[8px_8px_0px_0px_#1a1a1a] dark:shadow-[8px_8px_0px_0px_#dc2626] flex flex-col justify-center;
 }
 
-.experience-card-img {
-    @apply rounded-[2rem] overflow-hidden shadow-sm h-80 md:h-full w-full relative;
-}
-/* --- Tipografía interna --- */
 .experience-title {
-    @apply text-2xl font-bold text-marca-negro mb-4 tracking-tight;
+    @apply text-2xl sm:text-3xl font-black text-marca-negro dark:text-white tracking-tight mb-0;
 }
 
 .experience-paragraph {
-    @apply text-base text-gray-600 mb-8 leading-relaxed font-light;
+    @apply text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-8 leading-relaxed font-light;
 }
 
 /* --- Lista de Checkmarks --- */
 .check-list {
-    @apply space-y-6;
+    @apply space-y-5;
 }
 
 .check-item {
-    @apply flex items-start gap-4;
+    @apply flex items-start gap-3.5 sm:gap-4;
+}
+
+.check-icon-box {
+    @apply w-6 h-6 rounded-full bg-red-100 dark:bg-red-950/80 border border-red-200 dark:border-red-800 flex items-center justify-center flex-shrink-0 mt-0.5;
 }
 
 .check-icon {
-    @apply text-blue-500 mt-1 flex-shrink-0 w-6 h-6; /* Puse el check en azul como en tu ejemplo, pero puedes cambiarlo a marca-rojo */
+    @apply text-marca-rojo w-3.5 h-3.5;
 }
 
 .check-text {
-    @apply text-sm md:text-base text-gray-700 leading-relaxed font-light;
+    @apply text-xs sm:text-sm md:text-base text-gray-700 dark:text-gray-300 leading-relaxed font-light mb-0;
 }
 
 .check-highlight {
-    @apply font-bold text-marca-negro;
+    @apply font-bold text-marca-negro dark:text-white;
+}
+
+/* --- Tarjeta de Imagen (Derecha) --- */
+.experience-card-img {
+    @apply lg:col-span-5 rounded-[1.75rem] sm:rounded-[2rem] overflow-hidden border-2 border-marca-negro dark:border-gray-700 shadow-[8px_8px_0px_0px_#dc2626] dark:shadow-[8px_8px_0px_0px_#1f1f2a] min-h-[360px] sm:min-h-[440px] lg:min-h-full w-full relative bg-gray-900;
+}
+
+.experience-img {
+    @apply absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-apple-soft group-hover:scale-105;
+}
+
+.experience-img-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent transition-opacity duration-500;
+}
+
+.experience-img-caption {
+    @apply absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 bg-black/75 backdrop-blur-md border border-white/15 p-4 rounded-2xl z-10 transition-transform duration-700 ease-apple group-hover:-translate-y-1;
 }

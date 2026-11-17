@@ -1,34 +1,103 @@
-/* --- Contenedor Principal --- */
+/* --- Contenedor Principal (Mobile-First) --- */
 .about-section {
-    @apply py-32 bg-marca-blanco relative border-t border-gray-100;
+    @apply py-20 sm:py-32 bg-marca-blanco dark:bg-[#0e0e13] relative border-t border-gray-200 dark:border-gray-800 transition-colors duration-300;
 }
 
-/* --- Tipografía del Encabezado --- */
+.about-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 md:px-12;
+}
+
+/* --- Encabezado de la Sección --- */
+.about-header {
+    @apply flex flex-col lg:flex-row lg:items-end justify-between mb-12 sm:mb-16 gap-6;
+}
+
 .about-subheading {
-    @apply text-marca-rojo font-bold uppercase tracking-widest text-sm mb-4 block;
+    @apply font-mono text-marca-rojo font-bold uppercase tracking-widest text-xs sm:text-sm mb-3 block;
 }
 
 .about-heading {
-    @apply text-5xl md:text-7xl font-black text-marca-negro uppercase tracking-tighter leading-[0.9] mb-16;
+    @apply text-4xl sm:text-6xl md:text-7xl font-black text-marca-negro dark:text-white uppercase tracking-tighter leading-[0.9];
 }
 
-/* --- Tarjetas de Diferenciadores --- */
+.about-heading-muted {
+    @apply text-gray-300 dark:text-gray-700;
+}
+
+.about-lead {
+    @apply text-sm sm:text-base text-gray-600 dark:text-gray-400 max-w-md font-light leading-relaxed mb-0;
+}
+
+/* --- Grid de los 3 Pilares --- */
+.about-grid {
+    @apply grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch;
+}
+
+/* --- Tarjetas Estándar (Pilar 1 y 3) --- */
 .diferenciador-card {
-    @apply flex flex-col p-8 bg-gray-50 rounded-2xl border border-gray-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:border-marca-rojo/30;
+    @apply flex flex-col justify-between p-6 sm:p-8 bg-white dark:bg-[#14141c] rounded-[1.75rem] border-2 border-gray-200 dark:border-gray-800 transition-all duration-500 ease-apple hover:-translate-x-1 hover:-translate-y-1.5 hover:shadow-[8px_8px_0px_0px_#1a1a1a] dark:hover:shadow-[8px_8px_0px_0px_#dc2626] hover:border-marca-negro dark:hover:border-marca-rojo active:scale-[0.98] active:shadow-none;
 }
 
+/* --- Tarjeta Destacada (Pilar 2: IA & Diseño Intencional) --- */
 .diferenciador-card-destacada {
-    @apply flex flex-col p-8 bg-marca-negro text-marca-blanco rounded-2xl shadow-[8px_8px_0px_0px_#dc2626] transition-all duration-300 hover:-translate-y-2;
+    @apply flex flex-col justify-between p-6 sm:p-8 bg-marca-negro dark:bg-[#191924] text-marca-blanco rounded-[1.75rem] border-2 border-marca-negro dark:border-marca-rojo shadow-[8px_8px_0px_0px_#dc2626] transition-all duration-500 ease-apple hover:-translate-x-1 hover:-translate-y-1.5 hover:shadow-[12px_12px_0px_0px_#dc2626] active:scale-[0.98] active:shadow-[4px_4px_0px_0px_#dc2626];
 }
 
+/* --- Cabecera Interna de cada Tarjeta --- */
+.card-top-meta {
+    @apply flex items-center justify-between gap-2 mb-6;
+}
+
+.pilar-num {
+    @apply font-mono text-2xl sm:text-3xl font-black text-marca-rojo transition-transform duration-500 ease-apple group-hover:-translate-y-0.5 group-hover:scale-110;
+}
+
+.pilar-num-destacado {
+    @apply font-mono text-2xl sm:text-3xl font-black text-marca-rojo;
+}
+
+.pilar-badge {
+    @apply font-mono text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700;
+}
+
+.pilar-badge-destacado {
+    @apply font-mono text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-marca-rojo text-white;
+}
+
+/* --- Tipografía de las Tarjetas --- */
 .diferenciador-titulo {
-    @apply text-2xl font-bold mb-4 tracking-tight;
+    @apply text-2xl sm:text-3xl font-black text-marca-negro dark:text-white mb-4 tracking-tight;
+}
+
+.diferenciador-titulo-dark {
+    @apply text-2xl sm:text-3xl font-black text-white mb-4 tracking-tight;
 }
 
 .about-text {
-    @apply text-base text-gray-600 leading-relaxed font-light;
+    @apply text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed font-light mb-8;
+}
+
+.about-text strong {
+    @apply font-bold text-marca-negro dark:text-white;
 }
 
 .about-text-dark {
-    @apply text-base text-gray-300 leading-relaxed font-light;
+    @apply text-sm sm:text-base text-gray-300 leading-relaxed font-light mb-8;
+}
+
+.about-text-dark strong {
+    @apply font-bold text-white underline decoration-marca-rojo decoration-2 underline-offset-4;
+}
+
+/* --- Chips de Entregables al Pie de Tarjeta --- */
+.pilar-deliverables {
+    @apply flex flex-wrap gap-2 pt-5 border-t border-gray-100 dark:border-gray-800/80 mt-auto;
+}
+
+.deliverable-chip {
+    @apply font-mono text-[10px] font-semibold px-2.5 py-1 rounded-md bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-800 transition-colors duration-300 group-hover:border-gray-300 dark:group-hover:border-gray-700;
+}
+
+.deliverable-chip-dark {
+    @apply font-mono text-[10px] font-semibold px-2.5 py-1 rounded-md bg-white/10 text-gray-100 border border-white/15;
 }

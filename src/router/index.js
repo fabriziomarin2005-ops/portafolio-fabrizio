@@ -3,6 +3,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ProyectosView from '../views/ProyectosView.vue'
 import SobreMiView from '../views/SobreMiView.vue'
+import ContactSection from '@/components/home/ContactSection.vue'
 const routes = [
   {
     path: '/',
@@ -22,7 +23,7 @@ const routes = [
   {
     path: '/contacto',
     name: 'contacto',
-    component: () => import('../views/ContactoView.vue')
+    component: ContactSection
   },
   {
     path: '/sobre-mi',
@@ -34,8 +35,11 @@ const routes = [
 const router = createRouter({
   history: createWebHashHistory(),
   routes,
-  scrollBehavior () {
-    return { top: 0 }
+  // El scroll al inicio lo gestiona App.vue al terminar la transición de salida.
+  // En la primera carga sí forzamos el inicio.
+  scrollBehavior (to, from) {
+    if (!from.matched.length) return { top: 0 }
+    return false
   }
 })
 
