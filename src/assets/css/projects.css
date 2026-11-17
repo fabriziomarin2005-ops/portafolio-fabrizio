@@ -161,7 +161,15 @@
     @apply w-full sm:w-auto bg-gray-800 text-gray-200 font-bold text-xs sm:text-sm uppercase tracking-wider py-3.5 px-6 rounded-full text-center hover:bg-gray-700 active:scale-[0.98] transition-all duration-200;
 }
 
+.btn-modal-link {
+    @apply inline-flex items-center gap-1.5 font-mono text-xs font-bold uppercase tracking-wider px-4 py-2.5 rounded-full border-2 border-gray-700 text-gray-200 hover:border-marca-rojo hover:text-white active:scale-95 transition-all duration-300 ease-apple;
+}
+
 /* Transición del Modal */
+.btn-modal-link {
+    @apply inline-flex items-center gap-1.5 font-mono text-xs font-bold uppercase tracking-wider px-4 py-2.5 rounded-full border-2 border-gray-700 text-gray-200 hover:border-marca-rojo hover:text-white active:scale-95 transition-all duration-300 ease-apple;
+}
+
 /* Transición del Modal: fondo en fundido + hoja que sube (móvil) / escala (desktop) */
 .modal-fade-enter-active {
     transition: opacity 0.4s var(--ease-apple-soft);

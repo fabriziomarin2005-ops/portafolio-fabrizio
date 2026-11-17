@@ -1,16 +1,16 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import { createPinia } from 'pinia'
 import router from './router'
 import Motion from './directives/motion'
-import './index.css'
 import './assets/css/main.css'
 import './assets/css/motion.css'
 
-const pinia = createPinia()
-const app = createApp(App)
+// Compatibilidad con enlaces antiguos compartidos con "#" (ej. /#/proyectos → /proyectos)
+if (window.location.hash.startsWith('#/')) {
+  window.history.replaceState(null, '', window.location.hash.slice(1))
+}
 
-app.use(pinia)
-app.use(router)
-app.use(Motion)
-app.mount('#app')
+createApp(App)
+  .use(router)
+  .use(Motion)
+  .mount('#app')

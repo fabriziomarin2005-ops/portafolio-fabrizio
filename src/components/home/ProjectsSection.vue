@@ -152,6 +152,27 @@
                   </span>
                 </div>
               </div>
+              <!-- Enlaces del proyecto (configurables en src/config/site.js) -->
+              <div v-if="selectedLinks.repo || selectedLinks.demo" class="flex flex-wrap gap-3 mt-6">
+                <a
+                  v-if="selectedLinks.repo"
+                  :href="selectedLinks.repo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-modal-link"
+                >
+                  Ver código ↗
+                </a>
+                <a
+                  v-if="selectedLinks.demo"
+                  :href="selectedLinks.demo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-modal-link"
+                >
+                  Demo en vivo ↗
+                </a>
+              </div>
             </div>
 
             <div class="project-modal-footer">
@@ -172,6 +193,7 @@
 
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { PROJECT_LINKS } from '@/config/site'
 
 const activeCategory = ref('all')
 const selectedProject = ref(null)
@@ -253,6 +275,8 @@ const projects = [
     image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop'
   }
 ]
+
+const selectedLinks = computed(() => (selectedProject.value && PROJECT_LINKS[selectedProject.value.id]) || {})
 
 const filteredProjects = computed(() => {
   if (activeCategory.value === 'all') return projects

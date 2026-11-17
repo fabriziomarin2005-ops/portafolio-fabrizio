@@ -1,14 +1,9 @@
 <template>
-  <div></div>
+  <div class="contacto-page pt-16 bg-gray-50 dark:bg-[#0e0e13]">
+    <ContactSection />
+  </div>
 </template>
 
-<script>
-
-export default {
-  name: 'ContactoView',
-  data () {
-    return {
-    }
-  }
-}
+<script setup>
+import ContactSection from '@/components/home/ContactSection.vue'
 </script>

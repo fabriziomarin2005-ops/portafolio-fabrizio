@@ -15,14 +15,17 @@
       <figure class="editorial-figure group mt-8 sm:mt-12 mb-12 sm:mb-16" v-reveal="{ variant: 'zoom', delay: 200 }">
         <div class="editorial-image-container">
           <img
-            src="/img/home/Fabrizio5.jpeg"
+            src="/img/home/fabrizio5.webp"
+            width="1280"
+            height="850"
+            decoding="async"
             alt="Fabrizio Aguilar"
             class="editorial-image"
             loading="lazy"
           />
         </div>
         <figcaption class="editorial-caption">
-          <span>FIG 01. — VILLahermosa, TABASCO</span>
+          <span>FIG 01. — VILLAHERMOSA, TABASCO</span>
           <span>ARQUITECTURA & PROPÓSITO</span>
         </figcaption>
       </figure>
@@ -57,7 +60,10 @@
           <figure class="editorial-figure group">
             <div class="editorial-image-container">
               <img
-                src="/img/home/FABRIZIO4.jpeg"
+                src="/img/home/fabrizio4.webp"
+                width="1280"
+                height="1041"
+                decoding="async"
                 alt="Rumbo a Villahermosa"
                 class="editorial-image-sm"
                 loading="lazy"
@@ -113,7 +119,10 @@
           <figure class="flex flex-col group">
             <div class="editorial-image-container h-[260px] sm:h-[360px] md:h-[400px]">
               <img
-                src="/img/home/Fabrizio7.jpeg"
+                src="/img/home/fabrizio7.webp"
+                width="960"
+                height="1280"
+                decoding="async"
                 alt="Mi Familia"
                 class="balance-photo"
                 loading="lazy"
@@ -129,7 +138,10 @@
           <figure class="flex flex-col group sm:translate-y-10 md:translate-y-14">
             <div class="editorial-image-container h-[260px] sm:h-[360px] md:h-[400px]">
               <img
-                src="/img/home/ix.jpeg"
+                src="/img/home/ix.webp"
+                width="591"
+                height="1280"
+                decoding="async"
                 alt="Ixchel y yo"
                 class="balance-photo"
                 loading="lazy"

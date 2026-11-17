@@ -66,6 +66,20 @@
           </router-link>
         </div>
 
+        <!-- Descarga de CV (visible solo si SITE.cvUrl tiene valor) -->
+        <a
+          v-if="SITE.cvUrl"
+          :href="SITE.cvUrl"
+          download
+          class="hero-cv-link hero-anim"
+          style="--d: 940ms"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0l-5-5m5 5l5-5M5 20h14" />
+          </svg>
+          <span>Descargar CV (PDF)</span>
+        </a>
+
         <!-- Mini-Métricas de Autoridad (Proof of Competence) -->
         <div class="hero-metrics-bar hero-anim" style="--d: 1000ms">
           <div class="metric-item">
@@ -94,7 +108,9 @@
           <div class="hero-photo-frame group">
             <div class="hero-photo-overlay"></div>
             <img
-              src="/img/home/Fabrizio2.png"
+              src="/img/home/fabrizio2.webp"
+              width="744"
+              height="992"
               alt="Fabrizio Aguilar - Ingeniero en Ciencia de Datos y Desarrollador Full-Stack"
               class="hero-photo-img"
               fetchpriority="high"
@@ -135,6 +151,7 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import { SITE } from '@/config/site'
 
 const roles = [
   'Data Science Engineer',

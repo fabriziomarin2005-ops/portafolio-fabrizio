@@ -29,7 +29,7 @@
               </div>
               <div class="flex-1 min-w-0">
                 <p class="channel-label">Contacto Directo</p>
-                <p class="channel-value truncate">{{ emailAddress }}</p>
+                <p class="channel-value truncate">{{ SITE.email }}</p>
               </div>
               <button @click="copyEmail" class="channel-copy-btn">
                 {{ emailCopied ? '✓ Copiado' : 'Copiar' }}
@@ -38,7 +38,7 @@
 
             <!-- Canal 2: GitHub Oficial -->
             <a
-              href="https://github.com/fabriziomarin2005-ops"
+              :href="SITE.github"
               target="_blank"
               rel="noopener noreferrer"
               class="channel-card group"
@@ -55,6 +55,46 @@
               <span class="channel-arrow">↗</span>
             </a>
 
+            <!-- Canal opcional: LinkedIn -->
+            <a
+              v-if="SITE.linkedin"
+              :href="SITE.linkedin"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="channel-card group"
+            >
+              <div class="channel-icon-box group-hover:bg-marca-rojo group-hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" />
+                </svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="channel-label">Perfil Profesional</p>
+                <p class="channel-value truncate">LinkedIn</p>
+              </div>
+              <span class="channel-arrow">↗</span>
+            </a>
+
+            <!-- Canal opcional: WhatsApp -->
+            <a
+              v-if="SITE.whatsapp"
+              :href="`https://wa.me/${SITE.whatsapp}`"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="channel-card group"
+            >
+              <div class="channel-icon-box group-hover:bg-marca-rojo group-hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="channel-label">Respuesta Rápida</p>
+                <p class="channel-value truncate">WhatsApp</p>
+              </div>
+              <span class="channel-arrow">↗</span>
+            </a>
+
             <!-- Canal 3: Ubicación & Disponibilidad -->
             <div class="channel-card">
               <div class="channel-icon-box">
@@ -65,7 +105,7 @@
               </div>
               <div class="flex-1">
                 <p class="channel-label">Base de Operaciones</p>
-                <p class="channel-value">Villahermosa, Tabasco · Remoto / Híbrido</p>
+                <p class="channel-value">{{ SITE.location }}</p>
               </div>
             </div>
 
@@ -74,7 +114,18 @@
 
         <!-- Columna Derecha: Formulario Brutalista Interactivo -->
         <div class="contact-form-wrapper" v-reveal="{ variant: 'right', delay: 180 }">
-          <form @submit.prevent="submitForm" class="contact-form-card">
+          <form
+            name="contacto"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            @submit.prevent="submitForm"
+            class="contact-form-card"
+          >
+            <!-- Trampa anti-spam: invisible para humanos -->
+            <p class="hidden" aria-hidden="true">
+              <label>No llenar este campo: <input v-model="form.botField" name="bot-field" tabindex="-1" autocomplete="off" /></label>
+            </p>
 
             <div class="mb-6">
               <span class="font-mono text-xs uppercase tracking-widest text-marca-rojo font-bold block mb-2">
@@ -102,6 +153,8 @@
                 <input
                   id="name"
                   v-model="form.name"
+                  name="name"
+                  autocomplete="name"
                   type="text"
                   required
                   placeholder="Ej. Carlos Méndez / Tech Corp"
@@ -114,6 +167,8 @@
                 <input
                   id="email"
                   v-model="form.contact"
+                  name="contact"
+                  autocomplete="email"
                   type="text"
                   required
                   placeholder="correo@ejemplo.com o +52 993..."
@@ -126,6 +181,7 @@
                 <textarea
                   id="message"
                   v-model="form.message"
+                  name="message"
                   rows="4"
                   required
                   placeholder="Cuéntame brevemente qué necesitas resolver, fechas estimadas o materia de tutoría..."
@@ -135,15 +191,19 @@
             </div>
 
             <!-- Estado de Confirmación -->
-            <Transition name="banner">
-              <div v-if="submitted" class="form-success-banner" role="status">
-                <span>✓ ¡Mensaje preparado con éxito! Responderé a la brevedad.</span>
+            <Transition name="banner" mode="out-in">
+              <div v-if="status === 'success'" key="ok" class="form-success-banner" role="status">
+                <span>✓ ¡Mensaje enviado! Te responderé a la brevedad.</span>
+              </div>
+              <div v-else-if="status === 'error'" key="err" class="form-error-banner" role="alert">
+                <span>No se pudo enviar el mensaje. Tu texto sigue aquí:</span>
+                <a :href="mailtoHref" class="form-error-link">Enviarlo por correo ↗</a>
               </div>
             </Transition>
 
             <!-- Botón de Envío -->
-            <button type="submit" class="btn-contact-submit">
-              <span>ENVIAR MENSAJE</span>
+            <button type="submit" class="btn-contact-submit" :disabled="status === 'sending'">
+              <span>{{ status === 'sending' ? 'ENVIANDO...' : 'ENVIAR MENSAJE' }}</span>
               <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
@@ -159,11 +219,12 @@
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue'
+import { ref, reactive, computed } from 'vue'
+import { SITE } from '@/config/site'
 
-const emailAddress = 'fabriziomarin2005@gmail.com'
 const emailCopied = ref(false)
-const submitted = ref(false)
+// idle | sending | success | error
+const status = ref('idle')
 
 const topics = [
   'Full-Stack (Laravel/Vue)',
@@ -176,12 +237,13 @@ const form = reactive({
   topic: 'Full-Stack (Laravel/Vue)',
   name: '',
   contact: '',
-  message: ''
+  message: '',
+  botField: ''
 })
 
 const copyEmail = async () => {
   try {
-    await navigator.clipboard.writeText(emailAddress)
+    await navigator.clipboard.writeText(SITE.email)
     emailCopied.value = true
     setTimeout(() => {
       emailCopied.value = false
@@ -191,14 +253,44 @@ const copyEmail = async () => {
   }
 }
 
-const submitForm = () => {
-  submitted.value = true
-  setTimeout(() => {
+// Plan B si el envío falla: abre el correo con el mensaje ya redactado
+const mailtoHref = computed(() => {
+  const subject = `[Portafolio] ${form.topic} — ${form.name}`
+  const body = `${form.message}\n\nContacto: ${form.contact}`
+  return `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+})
+
+// Envío real con Netlify Forms (los mensajes llegan al panel de Netlify y a tu correo)
+const submitForm = async () => {
+  if (status.value === 'sending') return
+  if (form.botField) return // bot detectado
+
+  status.value = 'sending'
+  try {
+    const res = await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({
+        'form-name': 'contacto',
+        topic: form.topic,
+        name: form.name,
+        contact: form.contact,
+        message: form.message
+      }).toString()
+    })
+    if (!res.ok) throw new Error(`HTTP ${res.status}`)
+
+    status.value = 'success'
     form.name = ''
     form.contact = ''
     form.message = ''
-    submitted.value = false
-  }, 4000)
+    setTimeout(() => {
+      if (status.value === 'success') status.value = 'idle'
+    }, 6000)
+  } catch (e) {
+    // Se conserva lo escrito para no perder el mensaje
+    status.value = 'error'
+  }
 }
 </script>
 

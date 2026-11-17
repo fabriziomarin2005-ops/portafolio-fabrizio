@@ -29,7 +29,7 @@
       <div class="footer-links-col">
         <div class="footer-links">
           <a
-            href="https://github.com/fabriziomarin2005-ops"
+            :href="SITE.github"
             target="_blank"
             rel="noopener noreferrer"
             class="footer-social-link"
@@ -37,7 +37,8 @@
             GitHub ↗
           </a>
           <a
-            href="#"
+            v-if="SITE.linkedin"
+            :href="SITE.linkedin"
             target="_blank"
             rel="noopener noreferrer"
             class="footer-social-link"
@@ -67,6 +68,8 @@
 </template>
 
 <script setup>
+import { SITE } from '@/config/site'
+
 const scrollToTop = () => {
   window.scrollTo({
     top: 0,

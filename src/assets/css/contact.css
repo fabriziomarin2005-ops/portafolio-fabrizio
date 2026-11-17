@@ -105,13 +105,22 @@
     @apply mb-5 p-3.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300 text-xs font-bold;
 }
 
+.form-error-banner {
+    @apply mb-5 p-3.5 rounded-xl bg-red-50 dark:bg-red-950/60 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-300 text-xs font-bold flex flex-wrap items-center gap-x-2 gap-y-1;
+}
+
+.form-error-link {
+    @apply underline decoration-2 underline-offset-2 hover:text-marca-rojo;
+}
+
 /* Botón de Envío */
 .btn-contact-submit {
     @apply w-full inline-flex items-center justify-center gap-3 bg-marca-rojo text-white font-black text-sm sm:text-base tracking-wider uppercase py-4 px-8 rounded-full
     shadow-[5px_5px_0px_0px_#1a1a1a] dark:shadow-[5px_5px_0px_0px_#ffffff]
     hover:-translate-y-0.5 hover:shadow-[8px_8px_0px_0px_#1a1a1a] dark:hover:shadow-[8px_8px_0px_0px_#ffffff]
     active:translate-y-1 active:scale-[0.98] active:shadow-[1px_1px_0px_0px_#1a1a1a] dark:active:shadow-[1px_1px_0px_0px_#ffffff]
-    transition-all duration-300 ease-apple select-none;
+    transition-all duration-300 ease-apple select-none
+    disabled:opacity-60 disabled:cursor-wait disabled:translate-y-0;
 }
 
 /* Aparición del banner de confirmación */

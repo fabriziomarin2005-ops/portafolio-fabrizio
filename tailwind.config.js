@@ -13,10 +13,6 @@ module.exports = {
   },
   theme: {
     extend: {
-      fontFamily: {
-        sans: ['Graphik', 'sans-serif'],
-        serif: ['Merriweather', 'serif']
-      },
       spacing: {
         128: '32rem',
         144: '36rem'

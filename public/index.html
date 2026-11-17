@@ -1,11 +1,38 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="es">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+    <title>Fabrizio Aguilar · Data Science Engineer & Full-Stack Developer</title>
+    <meta name="description" content="Ingeniero en Ciencia de Datos y desarrollador Full-Stack. Sistemas institucionales con Laravel y Vue, pipelines analíticos con Python y DuckDB, y prototipos con IA generativa. Top 10 estatal en matemáticas.">
+    <meta name="author" content="Fabrizio Aguilar">
+    <meta name="theme-color" content="#1a1a1a">
+    <link rel="canonical" href="<%= VUE_APP_SITE_URL %>/">
+
+    <!-- Open Graph (LinkedIn, WhatsApp, Facebook) -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_MX">
+    <meta property="og:site_name" content="Fabrizio Aguilar">
+    <meta property="og:title" content="Fabrizio Aguilar · Data Science Engineer & Full-Stack Developer">
+    <meta property="og:description" content="Sistemas institucionales con Laravel y Vue, pipelines analíticos con Python y DuckDB, y prototipos con IA generativa.">
+    <meta property="og:url" content="<%= VUE_APP_SITE_URL %>/">
+    <meta property="og:image" content="<%= VUE_APP_SITE_URL %>/img/og-fabrizio.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Fabrizio Aguilar — Data Science Engineer">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Fabrizio Aguilar · Data Science Engineer & Full-Stack Developer">
+    <meta name="twitter:description" content="Laravel · Vue 3 · Python · SQL · IA generativa.">
+    <meta name="twitter:image" content="<%= VUE_APP_SITE_URL %>/img/og-fabrizio.jpg">
+
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="<%= BASE_URL %>apple-touch-icon.png">
+    <!-- La foto del Hero se descarga en paralelo con el JS -->
+    <link rel="preload" as="image" href="<%= BASE_URL %>img/home/fabrizio2.webp" type="image/webp">
+
     <!-- Aplica el tema antes de pintar para evitar el destello blanco en modo oscuro -->
     <script>
       (function () {
@@ -19,8 +46,19 @@
   </head>
   <body>
     <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+      <strong>Este sitio necesita JavaScript para funcionar. Escríbeme a fabriziomarin2005@gmail.com</strong>
     </noscript>
+
+    <!-- Formulario "fantasma" para que Netlify detecte el formulario de contacto
+         (el formulario real lo renderiza Vue en ContactSection.vue) -->
+    <form name="contacto" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="text" name="topic">
+      <input type="text" name="name">
+      <input type="text" name="contact">
+      <textarea name="message"></textarea>
+      <input type="text" name="bot-field">
+    </form>
+
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>

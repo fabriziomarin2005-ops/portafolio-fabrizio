@@ -81,7 +81,10 @@
         <!-- Tarjeta de Imagen con Overlay Editorial -->
         <div class="experience-card-img group" v-reveal="{ variant: 'right', delay: 150 }">
           <img
-            src="/img/home/Fabrizio3.png"
+            src="/img/home/fabrizio3.webp"
+            width="558"
+            height="992"
+            decoding="async"
             alt="Fabrizio Aguilar"
             class="experience-img"
             loading="lazy"

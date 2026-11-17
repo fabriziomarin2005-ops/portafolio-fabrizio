@@ -137,6 +137,22 @@
     -webkit-tap-highlight-color: transparent;
 }
 
+/* --- Enlace de descarga de CV --- */
+.hero-cv-link {
+    @apply -mt-5 mb-8 inline-flex items-center gap-2 font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-marca-negro dark:text-gray-200 py-1 active:text-marca-rojo;
+    background-image: linear-gradient(#dc2626, #dc2626);
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0% 2px;
+    transition: color 300ms var(--ease-apple), background-size 500ms var(--ease-apple);
+}
+
+.hero-cv-link:hover,
+.hero-cv-link:focus-visible {
+    @apply text-marca-rojo;
+    background-size: 100% 2px;
+}
+
 /* --- Barra de Métricas Rápidas (KPIs) --- */
 .hero-metrics-bar {
     @apply w-full pt-6 border-t border-gray-200 dark:border-gray-800/80 grid grid-cols-3 gap-2 sm:flex sm:items-center sm:gap-6;

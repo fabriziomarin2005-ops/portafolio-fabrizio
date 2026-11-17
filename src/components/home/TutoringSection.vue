@@ -118,7 +118,7 @@
             <div class="tutoring-topics" v-reveal-group="{ delay: 520, step: 60, variant: 'zoom' }">
               <span class="topic-chip">Algoritmos</span>
               <span class="topic-chip">Python & SQL</span>
-              <span class="topic-chip"> pensamiento Computacional</span>
+              <span class="topic-chip">Pensamiento Computacional</span>
             </div>
           </div>
         </article>

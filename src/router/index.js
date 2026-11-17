@@ -1,39 +1,46 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
-// Solo importamos la vista principal de forma directa
+import { createRouter, createWebHistory } from 'vue-router'
+// La portada se carga de inmediato; el resto de vistas bajo demanda
 import HomeView from '../views/HomeView.vue'
-import ProyectosView from '../views/ProyectosView.vue'
-import SobreMiView from '../views/SobreMiView.vue'
-import ContactSection from '@/components/home/ContactSection.vue'
+
+const SUFFIX = ' · Fabrizio Aguilar'
+
 const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: HomeView,
+    meta: { title: 'Fabrizio Aguilar · Data Science Engineer & Full-Stack Developer' }
   },
   {
     path: '/proyectos',
     name: 'proyectos',
-    component: ProyectosView
+    component: () => import('../views/ProyectosView.vue'),
+    meta: { title: 'Proyectos & AI Lab' + SUFFIX }
   },
   {
     path: '/tutorias',
     name: 'tutorias',
-    component: () => import('../views/TutoriasView.vue')
+    component: () => import('../views/TutoriasView.vue'),
+    meta: { title: 'Tutorías de Matemáticas, Física y Programación' + SUFFIX }
   },
   {
     path: '/contacto',
     name: 'contacto',
-    component: ContactSection
+    component: () => import('../views/ContactoView.vue'),
+    meta: { title: 'Contacto' + SUFFIX }
   },
   {
     path: '/sobre-mi',
     name: 'sobre-mi',
-    component: SobreMiView
-  }
+    component: () => import('../views/SobreMiView.vue'),
+    meta: { title: 'Sobre Mí' + SUFFIX }
+  },
+  // Cualquier ruta desconocida vuelve al inicio
+  { path: '/:pathMatch(.*)*', redirect: '/' }
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(process.env.BASE_URL),
   routes,
   // El scroll al inicio lo gestiona App.vue al terminar la transición de salida.
   // En la primera carga sí forzamos el inicio.
@@ -41,6 +48,10 @@ const router = createRouter({
     if (!from.matched.length) return { top: 0 }
     return false
   }
+})
+
+router.afterEach((to) => {
+  if (to.meta.title) document.title = to.meta.title
 })
 
 export default router
